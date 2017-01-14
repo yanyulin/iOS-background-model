@@ -7,8 +7,12 @@
 //
 
 #import "AppDelegate.h"
+#import <AVFoundation/AVFoundation.h>
 
 @interface AppDelegate ()
+
+@property(nonatomic, strong) AVAudioPlayer *audioPlayer;
+@property(nonatomic, assign) UIBackgroundTaskIdentifier bgTask;
 
 @end
 
@@ -25,10 +29,10 @@
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
 }
 
-- (void)applicationDidEnterBackground:(UIApplication *)application {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-}
+//- (void)applicationDidEnterBackground:(UIApplication *)application {
+//    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
+//    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+//}
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
@@ -40,6 +44,33 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+
+- (void)applicationDidEnterBackground:(UIApplication *)application{
+    
+    UIApplication*  app = [UIApplication sharedApplication];
+    self.bgTask = [app beginBackgroundTaskWithExpirationHandler:^{
+        [app endBackgroundTask:self.bgTask];
+        self.bgTask = UIBackgroundTaskInvalid;
+    }];
+    [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(applyForMoreTime) userInfo:nil repeats:YES];
+}
+
+- (void)applyForMoreTime {
+    if ([UIApplication sharedApplication].backgroundTimeRemaining < 30) {
+        NSURL *filePathUrl = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"1" ofType:@"wav"]];
+        [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback withOptions:AVAudioSessionCategoryOptionMixWithOthers error:nil];
+        self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:filePathUrl error:nil];
+        [self.audioPlayer play];
+        [[UIApplication sharedApplication] endBackgroundTask:self.bgTask];
+        self.bgTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
+            [[UIApplication sharedApplication] endBackgroundTask:self.bgTask];
+            self.bgTask = UIBackgroundTaskInvalid;
+        }];
+        
+        
+    }
 }
 
 @end

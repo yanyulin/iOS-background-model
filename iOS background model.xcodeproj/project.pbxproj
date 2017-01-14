@@ -15,6 +15,7 @@
 		3777CD5A1E29F81200B06CD7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3777CD581E29F81200B06CD7 /* LaunchScreen.storyboard */; };
 		3777CD651E29F81200B06CD7 /* iOS_background_modelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3777CD641E29F81200B06CD7 /* iOS_background_modelTests.m */; };
 		3777CD701E29F81200B06CD7 /* iOS_background_modelUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3777CD6F1E29F81200B06CD7 /* iOS_background_modelUITests.m */; };
+		3777CD7E1E2A006400B06CD7 /* 1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3777CD7D1E2A006400B06CD7 /* 1.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		3777CD6B1E29F81200B06CD7 /* iOS background modelUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iOS background modelUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3777CD6F1E29F81200B06CD7 /* iOS_background_modelUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iOS_background_modelUITests.m; sourceTree = "<group>"; };
 		3777CD711E29F81200B06CD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3777CD7D1E2A006400B06CD7 /* 1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 1.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 		3777CD491E29F81200B06CD7 /* iOS background model */ = {
 			isa = PBXGroup;
 			children = (
+				3777CD7D1E2A006400B06CD7 /* 1.wav */,
 				3777CD4D1E29F81200B06CD7 /* AppDelegate.h */,
 				3777CD4E1E29F81200B06CD7 /* AppDelegate.m */,
 				3777CD501E29F81200B06CD7 /* ViewController.h */,
@@ -245,6 +248,7 @@
 			files = (
 				3777CD5A1E29F81200B06CD7 /* LaunchScreen.storyboard in Resources */,
 				3777CD571E29F81200B06CD7 /* Assets.xcassets in Resources */,
+				3777CD7E1E2A006400B06CD7 /* 1.wav in Resources */,
 				3777CD551E29F81200B06CD7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -416,6 +420,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "iOS background model/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ayundi.rentalEnterpriseTest.iOS-background-model";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -427,6 +432,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "iOS background model/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ayundi.rentalEnterpriseTest.iOS-background-model";
 				PRODUCT_NAME = "$(TARGET_NAME)";
